@@ -109,10 +109,10 @@ const editNoteByIdHandler = (request, h) => {
 const deleteNoteByIdHandler = (request, h) => {
   const { id } = request.params
 
-  const note = notes.filter((note) => note.id === id)[0]
+  const id = notes.findIndex((note) => note.id === id)
 
-  if (note !== undefined) {
-    notes = notes.filter((note) => note.id !== id)
+  if (id !== -1) {
+    notes.splice[index, 1]
 
     const response = h.response({
       status: 'success',
