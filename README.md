@@ -1,1 +1,2 @@
 # open-music-api
+This project is a submission for the Dicoding platform, aimed at creating a powerful and efficient CRUD Music API with two main models: Albums and Songs. To accomplish this, the project utilizes Hapi.js for server-side functionality and PostgreSQL as the underlying database. The resulting API provides a seamless and intuitive experience for users seeking to manage and organize their music collections.
