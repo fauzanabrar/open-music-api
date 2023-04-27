@@ -42,19 +42,17 @@ class SongsHandler {
     };
   }
 
-  async getSongByIdHandler(request, h) {
+  async getSongByIdHandler(request) {
     const { id } = request.params;
 
     const song = await this._service.getSongById(id);
 
-    const response = h.response({
+    return {
       status: 'success',
       data: {
         song,
       },
-    });
-    response.code(200);
-    return response;
+    };
   }
 
   async putSongByIdHandler(request) {

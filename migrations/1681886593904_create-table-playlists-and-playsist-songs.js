@@ -1,5 +1,5 @@
 exports.up = (pgm) => {
-  pgm.createTable('albums', {
+  pgm.createTable('playlists', {
     id: {
       type: 'VARCHAR(50)',
       primaryKey: true,
@@ -8,9 +8,11 @@ exports.up = (pgm) => {
       type: 'TEXT',
       notNull: true,
     },
-    year: {
-      type: 'INTEGER',
+    owner: {
+      type: 'VARCHAR(50)',
       notNull: true,
+      references: '"users"',
+      onDelete: 'cascade',
     },
     created_at: {
       type: 'TEXT',
@@ -21,32 +23,22 @@ exports.up = (pgm) => {
       notNull: true,
     },
   });
-  pgm.createTable('songs', {
+  pgm.createTable('playlist_songs', {
     id: {
       type: 'VARCHAR(50)',
       primaryKey: true,
     },
-    title: {
+    playlist_id: {
       type: 'VARCHAR(50)',
       notNull: true,
+      references: '"playlists"',
+      onDelete: 'cascade',
     },
-    year: {
-      type: 'INTEGER',
-      notNull: true,
-    },
-    genre: {
+    song_id: {
       type: 'VARCHAR(50)',
       notNull: true,
-    },
-    performer: {
-      type: 'VARCHAR(50)',
-      notNull: true,
-    },
-    duration: {
-      type: 'INTEGER',
-    },
-    album_id: {
-      type: 'VARCHAR(50)',
+      references: '"songs"',
+      onDelete: 'cascade',
     },
     created_at: {
       type: 'TEXT',
@@ -60,6 +52,6 @@ exports.up = (pgm) => {
 };
 
 exports.down = (pgm) => {
-  pgm.dropTable('albums');
-  pgm.dropTable('songs');
+  pgm.dropTable('playlist_songs');
+  pgm.dropTable('playlists');
 };
