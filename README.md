@@ -25,7 +25,7 @@ To use Open Music API, you will need to have the following installed on your com
 
 Once you have these installed, follow these steps to get started:
 
-1. Clone this repository: `git clone https://github.com/your-username/open-music-api.git`
+1. Clone this repository: `git clone https://github.com/fauzanabrar/open-music-api.git`
 2. Navigate to the project directory: `cd open-music-api`
 3. Install the required packages: `npm install`
 4. Create a PostgreSQL database named `musicsapp`
